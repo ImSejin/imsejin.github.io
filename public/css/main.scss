@@ -1,0 +1,14 @@
+---
+---
+
+/*
+ * In order to use Sass, you must start the file with two lines of triple dashes.
+ * This ensures Jekyll reads the Sass file to be transformed into CSS file.
+ *
+ * Only 'main.scss' file contains this YAML front matter, not partials.
+ */
+
+ @import 'vars';
+ @import 'layout';
+ @import 'base';
+ @import 'item';

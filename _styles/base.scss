@@ -1,0 +1,8 @@
+/*
+ * Set the element of basic settings.
+ */
+a:hover {
+    transition: all 0.15s;
+    text-decoration: none;
+    color: lighten($theme-color, 30%) !important;
+}

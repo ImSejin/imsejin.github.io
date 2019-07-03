@@ -1,0 +1,100 @@
+/*
+ * Category buttons and tag buttons
+ */
+.post-tag {
+  display: inline-block;
+  background-color: rgba($theme-color, $translucency);
+  color: $theme-color;
+  padding: 0 .5rem;
+  margin-right: 0.5rem;
+  border-radius: 4px;
+  font-family: "PT Sans", Helvetica, Arial, sans-serif;
+  font-size: 90%;
+  -webkit-transition: all 0.1s ease-in-out;
+  -moz-transition: all 0.1s ease-in-out;
+  transition: all 0.1s ease-in-out;
+
+  &:before {
+    content: "\f02b";
+    font-family: FontAwesome;
+    padding-right: 0.5em;
+  }
+
+  &:hover {
+    text-decoration: none;
+    background-color: $theme-color;
+    color: $white !important;
+  }
+
+  &#no-category {
+    text-decoration: none;
+    background-color: rgba($gray, $translucency);
+    color: $gray;
+
+    &:hover {
+      background-color: #999;
+      color: $white !important;
+    }
+  }
+  
+}
+
+/*
+ * Sidebar toggle button
+ * 
+ * It is button that makes sidebar visible or invisible.
+ * Style the 'label' that we use to target the '.sidebar-checkbox'
+ */
+.sidebar-toggle {
+  position: absolute;
+  top:  1rem;
+  left: 1rem;
+  display: block;
+  width: 2.2rem;
+  padding: .5rem .65rem;
+  color: $theme-color; // #505050
+  background-color: $white;
+  border-radius: 4px;
+  cursor: pointer;
+
+  &:before {
+      display: block;
+      content: "";
+      width: 100%;
+      padding-bottom: .125rem;
+      border-top: .375rem double;
+      border-bottom: .125rem solid;
+    
+      /* Make the border inside the box */
+      -webkit-box-sizing: border-box;
+         -moz-box-sizing: border-box;
+              box-sizing: border-box;
+  }
+
+  &:hover, &:active {
+      color: $white;
+      background-color: $theme-color;
+
+      &:before {
+          color: $white;
+      }
+  }
+}
+
+#sidebar-checkbox:checked ~ .sidebar-toggle {
+  color: $white;
+  background-color: $theme-color;
+}
+
+@media (min-width: 30.1em) {
+  .sidebar-toggle {
+    position: fixed;
+    width: 2.25rem;
+
+    &:before {
+        padding-bottom: .15rem;
+        border-top-width: .45rem;
+        border-bottom-width: .15rem;
+    }
+  }
+}

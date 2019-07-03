@@ -1,0 +1,23 @@
+/*
+ * Themes
+ *
+ * Apply custom color schemes by adding the appropriate class to the 'body'.
+ * Based on colors from Base16: http://chriskempson.github.io/base16/#default.
+ */
+
+/* Choose the color of theme */
+$theme-color: $steelBlue;
+
+.theme {
+    & .sidebar,
+    & .sidebar-toggle:active,
+    & #sidebar-checkbox:checked ~ .sidebar-toggle {
+        background-color: $theme-color;
+    }
+
+    & .container a,
+    & .sidebar-toggle,
+    & .related-posts li a:hover {
+        color: $theme-color;
+    }
+}

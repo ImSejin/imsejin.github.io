@@ -1,0 +1,44 @@
+/*
+ * Style variables
+ *
+ * 
+ */
+$white:          #fff;
+$deepRed:        #900c3f;
+$red:            #c70039; // #ac4142
+$orange:         #d28445;
+$banana:         #ecd178; // #f4bf75
+
+/* Green */
+$green:          #90a959;
+$cyan:           #75b5aa;
+$seaGreen:       #2e8b57;
+$darkGreen:      #006400;
+
+/* Blue */
+$lightSteelBlue: #b0c4de;
+$powderBlue:     #b0e0e6;
+$skyBlue:        #87ceeb;
+$deepSkyBlue:    #00bfff;
+$dodgerBlue:     #1e90ff;
+$cornflowerBlue: #6495ed;
+$blue:           #6a9fb5;
+$steelBlue:      #3082c5; // #4682b4;
+$royalBlue:      #4169e1;
+
+$mygenta:        #aa759f;
+$brown:          #6b3e26; // #8f5536
+
+/* Gray */
+$lightGray:        #ddd;
+$gray:             #999;
+$darkGray:         #444;
+
+$translucency:     0.15;
+
+/*
+ * Function
+ */
+@function makeColorTranslucent($color, $amount: 15%) {
+    $color: rgba(104, 158, 180, 0.15);
+}
