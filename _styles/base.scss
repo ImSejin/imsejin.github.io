@@ -1,8 +1,39 @@
+@import url('https://fonts.googleapis.com/css?family=Merriweather&display=swap');
+
 /*
- * Set the element of basic settings.
+ * Basic settings
  */
 a:hover {
     transition: all 0.15s;
     text-decoration: none;
     color: lighten($theme-color, 30%) !important;
+}
+
+/*
+ * Font settings
+ */
+body {
+    // font-family: 'Merriweather', serif;
+    // font-family: 'Open Sans', sans-serif !important;
+    // font-size: 1.8em;
+    font-weight: 400;
+
+    .sidebar {
+        font-family: 'Open Sans', sans-serif;
+        text-rendering: geometricPrecision;
+    }
+
+    h2.title {
+        font-family: 'Open Sans', sans-serif;
+        text-rendering: geometricPrecision;
+        font-size: 2.65rem;
+        font-weight: 600;
+    }
+
+    h3.title {
+        font-family: 'Open Sans', sans-serif;
+        text-rendering: geometricPrecision;
+        font-size: 5.4rem;
+        font-weight: 600;
+    }
 }
