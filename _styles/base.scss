@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Merriweather&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Merriweather|Noto+Sans|Nanum+Gothic|Nanum+Myeongjo&display=swap');
 
 /*
  * Basic settings
@@ -9,12 +9,12 @@ a:hover {
     color: lighten($theme-color, 30%) !important;
 }
 
-/*
+/*"NanumBarunGothic","Noto Sans CJK KR"
  * Font settings
  */
 body {
-    // font-family: 'Merriweather', serif;
-    // font-family: 'Open Sans', sans-serif !important;
+    // font-family: 'Nanum Myeongjo', 'Merriweather', serif !important;
+    font-family: 'Nanum Gothic', 'Noto Sans', sans-serif !important;
     // font-size: 1.8em;
     font-weight: 400;
 

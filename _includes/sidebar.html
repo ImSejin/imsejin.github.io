@@ -17,7 +17,7 @@
         </a>
       </div>
       <!--
-        Use it if you registered yourself the Gravarta.
+        Use it if you registered your profile to the Gravarta.
       -->
       <!--div class="sidebar-personal-info-section">
         <a href="http://gravatar.com/{{ site.author.gravatar }}">
@@ -63,12 +63,16 @@
       {%- assign is_relative = parent_menu_url | slice: 0 -%}
       {%- assign child_menu_length = nav[1] | size | minus: 1 -%}
 
-      {%- comment -%} If URL is relative path, convert to absolute path. {%- endcomment -%}
+      {%- comment -%}
+        /*
+         * If URL is relative path, convert to absolute path.
+         */
+      {%- endcomment -%}
       {%- if is_relative == '/' -%}
         {%- assign parent_menu_url = nav[1][0] | prepend: site.baseurl -%}
       {%- endif -%}
 
-      <span class="{% if child_menu_length > 0 %}foldable{% endif %}">
+      <span {% if child_menu_length > 0 %}class="foldable"{% endif %}>
         <!-- Parent menu -->
         <a class="sidebar-nav-item{% if page.url == parent_menu_url %} active{% endif %}" href="{{ parent_menu_url }}">{{ parent_menu_name }}</a>
 
@@ -78,7 +82,11 @@
             {%- assign child_menu_url = sub_nav[1] -%}
             {%- assign sub_is_relative = child_menu_url | slice: 0 -%}
 
-            {%- comment -%} If URL is relative path, convert to absolute path. {%- endcomment -%}
+            {%- comment -%}
+              /*
+               * If URL is relative path, convert to absolute path.
+               */
+            {%- endcomment -%}
             {%- if sub_is_relative == '/' -%}
               {%- assign child_menu_url = sub_nav[1] | prepend: site.baseurl -%}
             {%- endif -%}

@@ -3,58 +3,118 @@ layout: blog_index
 title: Blog
 ---
 
-<h1 class="page-title" style="display:inline-block;"> {{ page.title }} </h1>
-
-<div style="display:inline-block;margin-left:.5em;">
-    Browse by <a href="/blog/category/">Category</a> or <a href="/blog/tag/">Tag</a>
-</div>
+<!-- Page header -->
+<h1 class="page-title" style="display:inline-block;">{{ page.title }}</h1>
+<!--
+    <div style="display:inline-block; margin-left: 0.5em;">
+        Browse by <a href="/blog/category/">Category</a> or <a href="/blog/tag/">Tag</a>
+    </div>
+-->
 
 <br/><br/>
 
-<div class="posts">
-    {% for post in paginator.posts %}
-    <div class="post">
-        <h1 class="post-title">
-            <a href="{{ post.url }}">
-                {{ post.title }}
-            </a>
-        </h1>
+<!-- Article list -->
+<div class="posts article-list">
+    {%- comment -%}
+        
+    {%- endcomment -%}
+    {%- assign the_number_of_articles = paginator.total_posts -%}
+    {%- assign articles = paginator.posts -%}
 
-        <span class="post-date">
-            {{ post.date | date_to_string }}
-            {% if post.tags != empty %}
-            |
-            {% for tag in post.tags %}
-            <a class="codinfox-tag-mark" href="/blog/tag/#{{ tag | slugify }}">{{ tag }}</a>
-            {% endfor %}
-            {% endif %}
-        </span>
+    {%- if the_number_of_articles > 0 -%}
+        {%- for article in articles -%}
+            {%- assign url = article.url -%}
+            {%- assign title = article.title -%}
+            {%- assign content = article.content -%}
+            {%- assign tags = article.tags -%}
+            {%- assign date = article.date -%}
 
-        {{ post.content | split:"<!-- more -->" | first % }}
+            <!-- Article item -->
+            <article class="post article-item">
+                <a class="article-link" href="{{ url }}">
+                    <!-- Image -->
+                    <header class="article-header">
+                        <div class="article-cover">
+                            <img src="" title="" alt="">
+                        </div>
+                    </header>
+                    <!-- Description -->
+                    <section class="article-body">
+                        <div class="article-preview">
+                            <h2 class="article-title post-title" style="font-weight: bold">{{ title }}</h2>
+                            <h3 class="article-subtitle">subtitle...</h3>
+                        </div>
+                    </section>
+                    <!-- Metadata -->
+                    <footer class="article-footer">
+                        <div class="article-meta">
+                            <div class="article-tags">
+                                {%- if article.tags != empty -%}
+                                    {%- for tag in tags -%}
+                                        <a class="codinfox-tag-mark article-tag" href="/blog/tag/#{{ tag | slugify }}">{{ tag }}</a> &nbsp;
+                                    {%- endfor -%}
+                                {%- endif -%}
+                            </div>
+                            <time class="article-time post-date">
+                                {{ date | date_to_string }}
+                            </time>
+                            <span class="article-comment">
+                                <a href="{{ url }}#disqus_thread"></a>&nbsp; <!-- fontawesome으로 말풍선 아이콘 + 댓글 개수 -->
+                            </span>
+                        </div>
+                    </footer>
+                </a>
+                
+                <!--
+                <h1 class="post-title" style="font-weight: bold">
+                    <a href="{{ article.url }}">{{ article.title }}</a>
+                </h1>
 
-        <div class="codinfox-post-more">
-            <a href="{{ post.url }}#disqus_thread">Comment</a>&nbsp;
-            <a href="{{ post.url }}">Read more</a>
-        </div>
-        <hr/>
-
-    </div>
-    {% endfor %}
+                <span class="post-date">
+                    {{ article.date | date_to_string }}
+                    {%- if article.tags != empty -%}
+                        &nbsp;|&nbsp; 
+                        {%- for tag in article.tags -%}
+                            <a class="codinfox-tag-mark" href="/blog/tag/#{{ tag | slugify }}">{{ tag }}</a> &nbsp;
+                        {%- endfor -%}
+                    {%- endif -%}
+                </span>
+                -->
+                {%- comment -%}
+                    /*
+                     * This code shows content of post to you.
+                     *
+                     * {{ post.content | split:"<!-- more -->" | first % }}
+                     */
+                {%- endcomment -%}
+                <!--
+                <div class="codinfox-post-more">
+                    {%- if tags != empty -%}
+                        <a href="{{ article.url }}#disqus_thread">Comment</a>&nbsp;
+                    {%- endif -%}
+                </div>
+                -->
+                <hr/>
+            </article>
+        {%- endfor -%}
+    {%- else -%}
+        No posts.
+    {%- endif -%}
 </div>
 
 <div class="pagination">
-    {% if paginator.next_page %}
-    <a class="pagination-item older" href="/blog/page{{paginator.next_page}}">Older</a>
-    {% else %}
+    {%- if paginator.next_page -%}
+    <a class="pagination-item older" href="/blog/page{{ paginator.next_page }}">Older</a>
+    {%- else -%}
     <span class="pagination-item older">Older</span>
-    {% endif %}
-    {% if paginator.previous_page %}
-    {% if paginator.page == 2 %}
+    {%- endif -%}
+    {%- if paginator.previous_page -%}
+        {%- if paginator.page == 2 -%}
     <a class="pagination-item newer" href="/blog">Newer</a>
-    {% else %}
-    <a class="pagination-item newer" href="/blog/page{{paginator.previous_page}}">Newer</a>
-    {% endif %}
-    {% else %}
+        {%- else -%}
+    <a class="pagination-item newer" href="/blog/page{{ paginator.previous_page }}">Newer</a>
+        {%- endif -%}
+    {%- else -%}
     <span class="pagination-item newer">Newer</span>
-    {% endif %}
+    {%- endif -%}
 </div>
