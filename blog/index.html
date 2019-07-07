@@ -28,42 +28,52 @@ title: Blog
             {%- assign content = article.content -%}
             {%- assign tags = article.tags -%}
             {%- assign date = article.date -%}
-
+            {%- assign thumbnail = article.thumbnail -%}
+            
             <!-- Article item -->
-            <article class="post article-item">
-                <a class="article-link" href="{{ url }}">
-                    <!-- Image -->
+            <article class="article-item">
+                <a class="article-link" href="{{ url }}"></a>
+                {%- if thumbnail != nil -%}
                     <header class="article-header">
-                        <div class="article-cover">
-                            <img src="" title="" alt="">
-                        </div>
+                        <!-- Thumbnail -->
+                        <a
+                            class="article-thumbnail"
+                            href="{{ url }}"
+                            style="background-image: url('{{ thumbnail }}')"
+                            alt="{{ title }}"
+                        >
+                        </a>
                     </header>
+                {%- endif -%}
+                <section class="article-body">
                     <!-- Description -->
-                    <section class="article-body">
-                        <div class="article-preview">
-                            <h2 class="article-title post-title" style="font-weight: bold">{{ title }}</h2>
-                            <h3 class="article-subtitle">subtitle...</h3>
-                        </div>
-                    </section>
+                    <div class="article-description">
+                        <h2 class="article-title">
+                            <a class="article-link" href="{{ url }}">{{ title }}</a>
+                        </h2>
+                        <h3 class="article-subtitle">
+                            <a class="article-link" href="{{ url }}">Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto, voluptate totam! tium velit voluptatibus magni.</a>
+                        </h3>
+                    </div>
                     <!-- Metadata -->
-                    <footer class="article-footer">
-                        <div class="article-meta">
+                    <div class="article-meta">
+                        {%- if tags != empty -%}
                             <div class="article-tags">
-                                {%- if article.tags != empty -%}
-                                    {%- for tag in tags -%}
-                                        <a class="codinfox-tag-mark article-tag" href="/blog/tag/#{{ tag | slugify }}">{{ tag }}</a> &nbsp;
-                                    {%- endfor -%}
-                                {%- endif -%}
+                                {%- for tag in tags -%}
+                                    <!-- codinfox-tag-mark -->
+                                    <a class="article-tag" href="/blog/tag/#{{ tag | slugify }}">{{ tag }}</a> &nbsp;
+                                {%- endfor -%}
                             </div>
-                            <time class="article-time post-date">
-                                {{ date | date_to_string }}
-                            </time>
-                            <span class="article-comment">
-                                <a href="{{ url }}#disqus_thread"></a>&nbsp; <!-- fontawesome으로 말풍선 아이콘 + 댓글 개수 -->
-                            </span>
-                        </div>
-                    </footer>
-                </a>
+                        {%- endif -%}
+                        <time class="article-date">
+                            <i class="fa fa-calendar" aria-hidden="true"></i>
+                            {{ date | date_to_string }}
+                        </time>
+                        <span class="article-comment">
+                            <a href="{{ url }}#disqus_thread"></a>&nbsp; <!-- fontawesome으로 말풍선 아이콘 + 댓글 개수 -->
+                        </span>
+                    </div>
+                </section>
                 
                 <!--
                 <h1 class="post-title" style="font-weight: bold">
@@ -94,7 +104,6 @@ title: Blog
                     {%- endif -%}
                 </div>
                 -->
-                <hr/>
             </article>
         {%- endfor -%}
     {%- else -%}

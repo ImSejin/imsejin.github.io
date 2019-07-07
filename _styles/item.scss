@@ -2,41 +2,129 @@
  * Category buttons and tag buttons
  */
 .post-tag {
-  display: inline-block;
-  background-color: rgba($theme-color, $translucency);
-  color: $theme-color;
-  padding: 0 .5rem;
-  margin-right: 0.5rem;
-  border-radius: 4px;
-  font-family: "PT Sans", Helvetica, Arial, sans-serif;
-  font-size: 90%;
-  -webkit-transition: all 0.1s ease-in-out;
-  -moz-transition: all 0.1s ease-in-out;
-  transition: all 0.1s ease-in-out;
+    display: inline-block;
+    background-color: rgba($theme-color, $translucency);
+    color: $theme-color;
+    padding: 0 .5rem;
+    margin-right: 0.5rem;
+    border-radius: 4px;
+    font-family: "PT Sans", Helvetica, Arial, sans-serif;
+    font-size: 90%;
+    -webkit-transition: all 0.1s ease-in-out;
+    -moz-transition: all 0.1s ease-in-out;
+    transition: all 0.1s ease-in-out;
 
-  &:before {
-    content: "\f02b";
-    font-family: FontAwesome;
-    padding-right: 0.5em;
-  }
-
-  &:hover {
-    text-decoration: none;
-    background-color: $theme-color;
-    color: $white !important;
-  }
-
-  &#no-category {
-    text-decoration: none;
-    background-color: rgba($gray, $translucency);
-    color: $gray;
+    &:before {
+        content: "\f02b";
+        font-family: 'FontAwesome';
+        padding-right: 0.5em;
+    }
 
     &:hover {
-      background-color: #999;
-      color: $white !important;
+        text-decoration: none;
+        background-color: $theme-color;
+        color: $white !important;
     }
-  }
-  
+
+    &#no-category {
+        text-decoration: none;
+        background-color: rgba($gray, $translucency);
+        color: $gray;
+
+        &:hover {
+            background-color: #999;
+            color: $white !important;
+        }
+    }
+}
+
+/*
+ * Articles
+ *
+ * The article item consists of thumbnail, title, subtitle,
+ * tag, date and the number of comments.
+ */
+.article-list {
+    
+    .article-item {
+        margin-bottom: 2rem;
+        border-radius: 10px;
+        background-color: #fff;
+        min-height: 10rem;
+        box-shadow: 0 1px 1px 0 rgba(31, 35, 46, $translucency);
+        display: flex;
+        flex-direction: row;
+        overflow: hidden;
+        transition: all 0.2s ease;
+
+        &:hover {
+            transform: translate(0px, -2px);
+            box-shadow: 0 15px 35px -10px rgba(10, 16, 34, 0.2);
+        }
+
+        .article-link {
+        }
+
+        .article-header {
+            width: 30%;
+            max-width: 100%;
+            
+            /* Thumbnail */
+            .article-thumbnail {
+                display: block;
+                height: 100%;
+                min-height: 10rem;
+                background-position: center;
+                background-size: cover;
+            }
+        }
+
+        .article-body {
+            font-family: 'Noto Sans KR', 'Nanum Gothic', sans-serif;
+            padding: 1rem 2rem;
+            width: 70%;
+
+            /* Description */
+            .article-description {
+
+                .article-title {
+                    font-family: 'Merriweather', 'Noto Sans KR', 'Nanum Gothic', serif;
+                    font-size: 1.5rem;
+                    font-weight: bold;
+                }
+
+                .article-subtitle {
+                    font-family: 'Noto Sans KR', 'Nanum Gothic', sans-serif;
+                    font-size: 0.9rem;
+                    font-weight: lighter;
+                }
+            }
+     
+            /* Metadata */
+            .article-meta {
+                .article-tags {
+                    .article-tag {
+                        border-radius: 5px;
+                        background-color: #eee;
+                        font-size: 0.75rem;
+                        color: #999;
+                        
+                        &:hover {
+                            color: #333;
+                        }
+                    }
+                }
+    
+                .article-date {
+    
+                }
+    
+                .article-comment {
+    
+                }
+            }
+        }
+    }
 }
 
 /*
@@ -46,55 +134,62 @@
  * Style the 'label' that we use to target the '.sidebar-checkbox'
  */
 .sidebar-toggle {
-  position: absolute;
-  top:  1rem;
-  left: 1rem;
-  display: block;
-  width: 2.2rem;
-  padding: .5rem .65rem;
-  color: $theme-color; // #505050
-  background-color: $white;
-  border-radius: 4px;
-  cursor: pointer;
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
+    display: block;
+    width: 2.2rem;
+    padding: 0.5rem 0.65rem;
+    color: $theme-color; // #505050
+    background-color: $white;
+    border-radius: 4px;
+    cursor: pointer;
 
-  &:before {
-      display: block;
-      content: "";
-      width: 100%;
-      padding-bottom: .125rem;
-      border-top: .375rem double;
-      border-bottom: .125rem solid;
-    
-      /* Make the border inside the box */
-      -webkit-box-sizing: border-box;
-         -moz-box-sizing: border-box;
-              box-sizing: border-box;
-  }
+    &:before {
+        display: block;
+        content: "";
+        width: 100%;
+        padding-bottom: 0.125rem;
+        border-top: 0.375rem double;
+        border-bottom: 0.125rem solid;
 
-  &:hover, &:active {
-      color: $white;
-      background-color: $theme-color;
+        /* Make the border inside the box */
+        -webkit-box-sizing: border-box;
+            -moz-box-sizing: border-box;
+                box-sizing: border-box;
+    }
 
-      &:before {
-          color: $white;
-      }
-  }
+    &:hover, &:active {
+        color: $white;
+        background-color: $theme-color;
+
+        &:before {
+            color: $white;
+        }
+    }
 }
 
 #sidebar-checkbox:checked ~ .sidebar-toggle {
-  color: $white;
-  background-color: $theme-color;
+    color: $white;
+    background-color: $theme-color;
 }
 
 @media (min-width: 30.1em) {
-  .sidebar-toggle {
-    position: fixed;
-    width: 2.25rem;
+    .sidebar-toggle {
+        position: fixed;
+        width: 2.25rem;
 
-    &:before {
-        padding-bottom: .15rem;
-        border-top-width: .45rem;
-        border-bottom-width: .15rem;
+        &:before {
+            padding-bottom: 0.15rem;
+            border-top-width: 0.45rem;
+            border-bottom-width: 0.15rem;
+        }
     }
-  }
+}
+
+/*
+ * Wrapper
+ */
+.wrapper {
+    background-color: #fafafa;
 }
