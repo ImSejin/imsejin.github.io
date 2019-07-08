@@ -16,9 +16,10 @@ title: Home
 <!-- Article list -->
 <div class="posts article-list">
     {%- comment -%}
-        
+        /*
+         * 
+         */
     {%- endcomment -%}
-    {{ posts }}
     {%- assign the_number_of_articles = paginator.total_posts -%}
     {%- assign articles = paginator.posts -%}
 
@@ -26,10 +27,11 @@ title: Home
         {%- for article in articles -%}
             {%- assign url = article.url -%}
             {%- assign title = article.title -%}
-            {%- assign content = article.content -%}
+            {%- assign thumbnail = article.thumbnail -%}
             {%- assign tags = article.tags -%}
             {%- assign date = article.date -%}
-            {%- assign thumbnail = article.thumbnail -%}
+            {%- assign comments = article.comments -%}
+            {%- assign content = article.content -%}
             
             <!-- Article item -->
             <article class="article-item">
@@ -65,7 +67,9 @@ title: Home
                         {%- endif -%}
                         <div class="article-meta-footer">
                             <time class="article-date">{{ date | date_to_string }}</time>
-                            <a class="article-comment" href="{{ url }}#disqus_thread"></a> <!-- fontawesome으로 말풍선 아이콘 + 댓글 개수 -->
+                            {%- if comments == true -%}
+                                <a class="article-comment" href="{{ url }}#disqus_thread"></a>
+                            {%- endif -%}
                         </div>
                     </div>
                 </section>
