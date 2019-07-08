@@ -1,11 +1,11 @@
 ---
 layout: post
 title: 누구나 따라하는 Jekyll 블로그 만들기
-published: true
-comments: true
-category: Jekyll
-tags: jekyll howToInstall
 thumbnail: /public/imgs/jekyll.png
+category: Jekyll
+tags: jekyll howToStart
+comments: true
+published: true
 ---
 
 개발 공부하면서 깨달은 것을 기록하기 위해 블로그를 선택하려 했는데, 제품이 너무 많았다. 네이버 블로그, 티스토리, 브런치, 워드프레스 등등 아예 나만의 홈페이지를 백지에서부터 만들어서 호스팅할까도 생각했다.
@@ -14,49 +14,33 @@ thumbnail: /public/imgs/jekyll.png
 
 실행환경은 <u>Windows 10 Pro</u>이다.
 
-
-
 ## Goals
 
 - 자신만의 블로그를 만들 수 있다
 - 무료 호스팅 서비스를 받을 수 있다
 - 개발 블로그가 없던 개발자에서 개발 블로그가 있는 개발자로 거듭날 수 있다 :-)
 
-
-
 ## Let's do this
-
-
 
 ### Ruby 설치
 
 Jekyll은 Ruby 스크립트로 이루어져 있다. 먼저 [여기](<https://rubyinstaller.org/downloads/>)에서 Ruby 설치파일을 다운받는다.
 
-
-
 > 자신의 OS 비트에 해당하는 RubyInstaller를 받는다.
 >
 > 64bit 운영체제인데 32bit Installer로 설치하면 MSYS2 설치할 때 오류 난다.
-
-
 
 ![001](.\_img\rubyInstaller\001.png)
 
 `Add Ruby executables to your PATH`에 체크를  한다.
 
-
-
 > 환경변수 PATH에 루비 설치경로가 추가된다.
 >
 > 체크하지 않으면 나중에 따로 환경변수에 GEM_HOME을 추가해야 한다.
 
-
-
 ![002](.\_img\rubyInstaller\002.png)
 
 `MSYS2 development toolchain`에 체크되어 있는지 확인하고 다음을 누른다.
-
-
 
 > MSYS2는 Windows의 Command Prompt에서 루비 명령어를 사용할 수 있게 해준다.
 >
@@ -64,23 +48,15 @@ Jekyll은 Ruby 스크립트로 이루어져 있다. 먼저 [여기](<https://rub
 >
 > 그럼 [여기](<http://www.msys2.org>)에서 다운받아 따로 설치해야 하는데 정말 귀찮아 진다. Installer가 떠먹여 줄 때 먹자.
 
-
-
 ![003](.\_img\rubyInstaller\003.png)
 
 `Run 'ridk install' to setup MSYS2 and development toolchain. MSYS2 is required to install gems with C extensions.`에 체크하고 finish한다.
 
-
-
 > 체크하지 않은 채 Installer를 종료했다면, cmd를 실행시키고 `ridk install` 명령어를 실행하자.
-
-
 
 ![004](.\_img\rubyInstaller\004.png)
 
 MSYS2를 사용하기 위해 1, 2, 3 옵션을 순차적으로 설치한다.
-
-
 
 ![](.\_img\rubyInstaller\005.png)
 
@@ -92,13 +68,9 @@ enter 눌러 종료하고 커맨드에서 `ridk install` 명령어를 실행한�
 
 그러면 아까 봤던 RubyInstaller2 for Windows가 우리를 환영해준다. 2번 옵션부터 마저 설치한다.
 
-
-
 3번 옵션까지 설치했다면 `ruby -v`와 `gem -v` 명령어를 실행시켜
 
 버전이 제대로 출력되는지 확인한다.
-
-
 
 ### Jekyll과 Bundler 설치
 
@@ -108,27 +80,19 @@ Jekyll과 Bundler는 Gem(Ruby 라이브러리)이기에 gem 명령어로 설치�
 
 `gem install bundler`
 
-
-
 > *이것 때문에 Ruby와 repository를 스무 번 이상 설치/삭제한 것 같다, 껄껄껄.*
 >
 > *`ruby dk.rb init` 명령어를 실행하라고 하는데 dk.rb 파일은 어디에도 없고.*
 >
 > *Develpoment Kit를 설치하니까 되긴 됐는데 여러 번 삽질해보니까 저 명령어가 필요없었다.*
 
-
-
 ### 블로그 생성
-
-
 
 #### 직접 생성하기
 
 이제 Jekyll로 정적 블로그를 생성해본다. 나의 경우 Github에서 pull한 저장소를 관리하는 폴더(D:\repositories)가
 
 있기 때문에 여기에서 블로그를 생성하겠다. `jekyll new [저장소 이름]` 명령어를 실행해준다.
-
-
 
 #### Github에서 fork하기
 
@@ -138,11 +102,7 @@ Jekyll과 Bundler는 Gem(Ruby 라이브러리)이기에 gem 명령어로 설치�
 
 원하는 테마를 찾아 github 저장소를 fork하고 clone받자.
 
-
-
 > fork와 clone에 대해서 모른다면 [이 글](을 참고하자.
-
-
 
 ### 블로그 구동
 
@@ -150,13 +110,9 @@ Jekyll과 Bundler는 Gem(Ruby 라이브러리)이기에 gem 명령어로 설치�
 
 URL은 *<u>localhost:4000</u>*이다.
 
-
-
 #### Github에서 fork했다면
 
 위의 명령어로는 아래와 같은 에러가 발생해 구동할 수가 없을 것이다.
-
-
 
 ```log
 Traceback (most recent call last):
@@ -171,8 +127,6 @@ C:/Ruby25-x64/lib/ruby/2.5.0/rubygems/core_ext/kernel_require.rb:59:in `require'
 이제 설치한 Bundler를 써야할 때가 왔다. Bundler는 꼭 필요한 버전의 루비 젬을 찾고 설치하는 도구다.
 
 `bundle exec jekyll serve` 명령어를 실행한다.
-
-
 
 ```log
 Traceback (most recent call last):
@@ -189,11 +143,7 @@ To install the missing version, run `gem install bundler:1.16.4`
 
 하지만 열에 아홉은 오류가 난다 ^___^
 
-
-
 ### Trouble Shooting
-
-
 
 #### TimeZone Dependency Error
 
@@ -205,8 +155,6 @@ jekyll 3.8.4 | Error:  tzinfo
 TimeZone 설정값이 에러가 나는 문제다.
 
 `_config.yml`에서 timeZone 속성의 값을 비운 채로 남긴다.
-
-
 
 #### No Repository Name Error
 
@@ -225,8 +173,6 @@ TimeZone 설정값이 에러가 나는 문제다.
 
 > ex). repository: ImSejin/imsejin.github.io
 
-
-
 #### Conversion Error
 
 ```log
@@ -244,8 +190,6 @@ CharacterSet 종류로 인해 해당 캐릭터를 인코딩하지 못하는 문�
 > 949: 한글(KSC5601-92, 조합형 한글)
 >
 > 65001: UTF-8
-
-
 
 #### EventMachine Error
 
@@ -283,8 +227,6 @@ LiveReLoad 옵션은 파일에 변경사항이 발생했을 때 자동으로 브
 
 이 옵션을 사용하려면 EventMachine이 필요한데 이를 로드할 수가 없는 문제다.
 
-
-
 `gem uninstall eventmachine` 명령어를 실행한다.
 
 `gem list --local` 명령어를 실행하여 루비 젬이 제대로 삭제되었는지를 확인한다.
@@ -295,8 +237,6 @@ LiveReLoad 옵션은 파일에 변경사항이 발생했을 때 자동으로 브
 
 정상적으로 삭제되었다면 `gem install eventmachine --platform=ruby` 명령어를 실행하고 다시 구동한다.
 
-
-
 ```log
 Select gem to uninstall:
  1. eventmachine-1.2.7
@@ -306,15 +246,11 @@ Select gem to uninstall:
 
 eventmachine을 삭제하려고 할 때, 여러 버전이 설치되어 있어서 위와 같이 출력되면 `2번` 항목을 삭제한다.
 
-
-
 #### Posting 404 Error
 
 모든 원인을 검토해봤는데도 자기가 올린 글에 접근 시 에러가 난다면,
 
 해당 파일의 경로에 한글이 들어가지 않았나 확인한다.
-
-
 
 #### Permanent Links Error
 
@@ -325,8 +261,6 @@ Since v3.0, permalinks for pages in subfolders must be relative to the site sour
 고유링크가 사이트 소스 디렉토리와 관련되지 않아서 발생한 문제다.
 
 `_config.yml`에서 `relative_permalinks: true` 속성 항목을 삭제한다.
-
-
 
 #### Highlighter Dependency Error
 
@@ -344,11 +278,7 @@ Dependency Error: Yikes! It looks like you don't have pygments or one of its dep
 
 블로그 디렉토리에 있는 `Gemfile`이란 파일에 `gem 'pygments.rb'`를 추가한다.
 
-
-
 그런데 위의 방법보다 더 편한 방법이 있다. `_config.yml`에서 highlighter 속성 값을 `rouge`로 바꾼다.
-
-
 
 ## References
 
@@ -367,4 +297,3 @@ Dependency Error: Yikes! It looks like you don't have pygments or one of its dep
 - [문자 집합(Character Set)과 인코딩(Encoding)](<https://nuli.navercorp.com/sharing/blog/post/1079940>)
 - [Compability with Jekyll 3? · Issue #99 · poole/poole](<https://github.com/poole/poole/issues/99>)
 - [Jekyll - rouge로 코드 highlighting](<http://dalzony.github.io/2016/01/highlighting>)
-
