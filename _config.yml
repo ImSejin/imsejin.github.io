@@ -13,12 +13,12 @@ version:              1.0.0
 # Site Configurations #
 #######################
 paginate:             5                                     # The number of articles per page.
-paginate_path:        '/pages/home/page:num'                # URI to get pagination.
-permalink:            '/pages/:categories/:title'           # It makes URI pretty by erasing file extension.
+paginate_path:        '/pages/page:num'                     # URI where it use the gained pagination.
+permalink:            '/articles/:categories/:title'        # It makes URI pretty by erasing file extension.
 relative_permalinks:  false                                 # It ensures article links from the index work properly.
 sass:
   sass_dir:           /_styles/                             # Directory of saved SCSS files and the files to be compiled.
-  style:              compressed                            # Minify CSS files.
+  style:              compressed                            # It Minifies CSS files.
 search:               true
 
 ##############
@@ -27,16 +27,16 @@ search:               true
 nav:
   Home:
     - '/'
-  Blog:
-    - '/blog/'                                # The path of parent menu must be the first element of array.
-    - { Category: '/pages/categories' }
-    - { Tag: '/pages/tags' }
+  Categories:
+    - '/categories/'                                        # The path of parent menu must be the first element of array.
+    - { Categories: '/pages/categories' }
+    - { Tags: '/pages/tags' }
   About:
     - '/about/'
   Github Project:
     - 'https://github.com/ImSejin'
-category_page: '/blog/categories/'            # Where are categories displayed.
-tag_page: '/blog/tags/'                       # Where are tags displayed.
+category_page: '/blog/categories/'                          # Where are categories displayed.
+tag_page: '/blog/tags/'                                     # Where are tags displayed.
 
 ################
 # Dependencies #
