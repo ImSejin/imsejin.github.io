@@ -4,7 +4,7 @@
 title:                Sejin's DevDocs                       # Title of the jekyll blog.
 tagline:              'Recording what I learned'            # Additional title of the jekyll blog.
 description:          'Blog of YourName. Here are some technical stuff. Some notes about development.'
-baseurl:              # '/imsejin'
+baseurl:              # '/pages/home/'
 url:                  https://github.com/ImSejin
 logo:                 '/public/logo.png'
 version:              1.0.0
@@ -12,13 +12,14 @@ version:              1.0.0
 #######################
 # Site Configurations #
 #######################
-paginate:             5                       # The number of post per page.
-paginate_path:        '/blog/page:num'        # URI of pagination.
-permalink:            pretty                  # It makes URI pretty by erasing file extension.
-relative_permalinks:  false                   # It ensures post links from the index work properly.
+paginate:             5                                     # The number of articles per page.
+paginate_path:        '/pages/home/page:num'                # URI to get pagination.
+permalink:            '/pages/:categories/:title'           # It makes URI pretty by erasing file extension.
+relative_permalinks:  false                                 # It ensures article links from the index work properly.
 sass:
-  sass_dir:           /_styles/               # Directory of saved SCSS files and the files to be compiled.
-  style:              compressed              # Minify CSS files.
+  sass_dir:           /_styles/                             # Directory of saved SCSS files and the files to be compiled.
+  style:              compressed                            # Minify CSS files.
+search:               true
 
 ##############
 # Navigation #
@@ -28,8 +29,8 @@ nav:
     - '/'
   Blog:
     - '/blog/'                                # The path of parent menu must be the first element of array.
-    - { Category: '/blog/category' }
-    - { Tag: '/blog/tag' }
+    - { Category: '/pages/categories' }
+    - { Tag: '/pages/tags' }
   About:
     - '/about/'
   Github Project:
