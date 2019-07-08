@@ -9,14 +9,15 @@ a:hover {
     color: lighten($theme-color, 30%) !important;
 }
 
-/*"NanumBarunGothic","Noto Sans CJK KR"
+/*
  * Font settings
  */
-body {
+html {
     // font-family: 'Nanum Myeongjo', 'Merriweather', serif !important;
-    font-family: 'Noto Sans KR', 'Nanum Gothic', sans-serif !important;
-    // font-size: 1.8em;
-    font-weight: 400;
+    // font-family: 'Noto Sans KR', 'Nanum Gothic', sans-serif !important;
+    font-size: 20px;
+    font-weight: normal;
+    line-height: 1.5; /* 37.5px */
 
     .sidebar {
         font-family: 'Open Sans', sans-serif;
