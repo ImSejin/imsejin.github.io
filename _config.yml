@@ -53,7 +53,7 @@ highlighter:          rouge
 ###########
 mathjax: true                                 # Whether support mathjax.
 google_analytics_token:     # 'UA-00000000-1' # Leave blank if you don't want google analytics.
-disqus_short_name:        # 'your_short_name' # Leave blank if you don't want disqus.
+disqus_short_name: 'sejins-devdocs'           # Leave blank if you don't want disqus.
 
 #######################
 # Contact information #

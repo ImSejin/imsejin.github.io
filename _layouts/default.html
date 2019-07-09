@@ -24,7 +24,7 @@
         <!-- <div class="codinfox-masthead-bg"></div> -->
       </div>
 
-      <!-- This shows you posts -->
+      <!-- This shows you articles -->
       <div class="container content">
         {{ content }}
       </div>
@@ -33,19 +33,9 @@
     <label for="sidebar-checkbox" class="sidebar-toggle"></label>
 
     <!-- Disqus -->
-    <script type="text/javascript">
-    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
-    var disqus_shortname = 'yourname'; // required: replace example with your forum shortname
+    <script id="dsq-count-scr" src="//{{ site.disqus_short_name }}.disqus.com/count.js" async></script>
 
-    /* * * DON'T EDIT BELOW THIS LINE * * */
-    (function () {
-        var s = document.createElement('script'); s.async = true;
-        s.type = 'text/javascript';
-        s.src = '//' + disqus_shortname + '.disqus.com/count.js';
-        (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
-    }());
-    </script>
-
+    <!-- Sidebar toggler -->
     <script>
       (function(document) {
         var toggle = document.querySelector('.sidebar-toggle');
@@ -63,6 +53,5 @@
         }, false);
       })(document);
     </script>
-
   </body>
 </html>
