@@ -284,7 +284,7 @@ Dependency Error: Yikes! It looks like you don't have pygments or one of its dep
 
 - [박군~ 즐겨라!!: Ruby Gem, Failed to build gem native extension 에러 해결하기](<http://creator-textcube.blogspot.com/2009/03/ruby-gem-failed-to-build-gem-native.html>)
 - [[Jekyll] 윈도우에서 지킬 설치 및 블로그 생성하기 - Shryu8902’s Blog](<https://shryu8902.github.io/_posts/2018-06-22-jekyll-on-windows/>)
-- [Jekyll 윈도우에 설치해서 사용하기 | WhaTap Tech Blog](<https://tech.whatap.io/2015/09/11/install-jekyll-on-windows/>)
+- [Jekyll 윈도우에 설치해서 사용하기 - WhaTap Tech Blog](<https://tech.whatap.io/2015/09/11/install-jekyll-on-windows/>)
 - [지킬(jekyll) 로 포스팅하기 · Jungtae Kim Blog](<https://jungtaejtkim.github.io/dev/2017/05/02/posting/>)
 - [Jekyll 블로그 github를 통해 퍼블리싱하는 방법 · Yoon's devlog](<http://blog.hyeyoonjung.com/2017/05/22/how-to-write-posts/>)
 - [Fixing the "No GitHub API authentication could be found" when jekyll serve · Issue #140 · DIYbiosphere/sphere](<https://github.com/DIYbiosphere/sphere/issues/140>)
