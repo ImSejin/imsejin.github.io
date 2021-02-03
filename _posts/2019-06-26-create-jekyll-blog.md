@@ -30,7 +30,7 @@ Jekyll은 Ruby 스크립트로 이루어져 있다. 먼저 [여기](<https://rub
 >
 > 64bit 운영체제인데 32bit Installer로 설치하면 MSYS2 설치할 때 오류 난다.
 
-![001](.\_img\rubyInstaller\001.png)
+![001](/assets/images/rubyInstaller/001.png)
 
 `Add Ruby executables to your PATH`에 체크를  한다.
 
@@ -38,7 +38,7 @@ Jekyll은 Ruby 스크립트로 이루어져 있다. 먼저 [여기](<https://rub
 >
 > 체크하지 않으면 나중에 따로 환경변수에 GEM_HOME을 추가해야 한다.
 
-![002](.\_img\rubyInstaller\002.png)
+![002](/assets/images/rubyInstaller/002.png)
 
 `MSYS2 development toolchain`에 체크되어 있는지 확인하고 다음을 누른다.
 
@@ -48,17 +48,17 @@ Jekyll은 Ruby 스크립트로 이루어져 있다. 먼저 [여기](<https://rub
 >
 > 그럼 [여기](<http://www.msys2.org>)에서 다운받아 따로 설치해야 하는데 정말 귀찮아 진다. Installer가 떠먹여 줄 때 먹자.
 
-![003](.\_img\rubyInstaller\003.png)
+![003](/assets/images/rubyInstaller/003.png)
 
 `Run 'ridk install' to setup MSYS2 and development toolchain. MSYS2 is required to install gems with C extensions.`에 체크하고 finish한다.
 
 > 체크하지 않은 채 Installer를 종료했다면, cmd를 실행시키고 `ridk install` 명령어를 실행하자.
 
-![004](.\_img\rubyInstaller\004.png)
+![004](/assets/images/rubyInstaller/004.png)
 
 MSYS2를 사용하기 위해 1, 2, 3 옵션을 순차적으로 설치한다.
 
-![](.\_img\rubyInstaller\005.png)
+![005](/assets/images/rubyInstaller/005.png)
 
 1번 옵션 `MSYS2 base installation`을 성공적으로 완료했다면 경고창이 뜬다.
 
