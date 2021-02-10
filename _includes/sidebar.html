@@ -6,19 +6,19 @@
 
 <!-- Toggleable sidebar -->
 <div id="sidebar" class="sidebar">
-    <!-- Profile -->
-    <div class="sidebar-item">
-        <div class="sidebar-personal-info">
+  <!-- Profile -->
+  <div class="sidebar-item">
+    <div class="sidebar-personal-info">
 
-            <div class="sidebar-personal-info-section">
-                <a href="http://gravatar.com/{{ site.author.gravatar }}">
-                    <img src="/public/imgs/sejin.jpg" title="View on Gravatar" alt="View on Gravatar" />
-                </a>
-            </div>
-            <!--
+      <div class="sidebar-personal-info-section">
+        <a href="http://gravatar.com/{{ site.author.gravatar }}">
+          <img src="/public/imgs/sejin.jpg" title="View on Gravatar" alt="View on Gravatar" />
+        </a>
+      </div>
+      <!--
                 Use it if you registered your profile to the Gravarta.
             -->
-            <!--
+      <!--
             <div class="sidebar-personal-info-section">
                 <a href="http://gravatar.com/{{ site.author.gravatar }}">
                     <img src="http://www.gravatar.com/avatar/{{ site.author.gravatar }}?s=350" title="View on Gravatar" alt="View on Gravatar" />
@@ -26,135 +26,129 @@
             </div>
             -->
 
-            <div class="sidebar-personal-info-section">
-                <p>{{ site.author.introduction }}</p>
-            </div>
+      <div class="sidebar-personal-info-section">
+        <p>{{ site.author.introduction }}</p>
+      </div>
 
-            <!-- Contact platform -->
-            {%- if site.author.contact -%}
-                {%- assign length = site.author.contact | size -%}
-                {%- assign current_index = 0 -%}
-                
-                <div class="sidebar-personal-info-section">
-                    <p> Follow me: 
-                    {%- for contact in site.author.contact -%}
-                        {%- assign contact_platform = contact[0] -%}
-                        {%- assign contact_url = contact[1] -%}
+      <!-- Contact platform -->
+      {%- if site.author.contact -%}
+      {%- assign length = site.author.contact | size -%}
+      {%- assign current_index = 0 -%}
 
-                        {%- if contact_platform == 'email' -%}
-                            {%- assign contact_platform = 'envelope' -%}
-                        {%- endif -%}
-                        <a href="{{ contact_url }}">
-                            <i class="fa fa-{{ contact_platform }}" aria-hidden="true"></i>
-                        </a>
-                        {%- assign current_index = current_index | plus: 1 -%}
-                        <!-- Delimiters -->
-                        {%- if length > current_index -%} | {%- endif -%}
-                    {%- endfor -%}
-                    </p>
-                </div>
-            {%- endif -%}
-        </div>
+      <div class="sidebar-personal-info-section">
+        <p> Follow me:
+          {%- for contact in site.author.contact -%}
+          {%- assign contact_platform = contact[0] -%}
+          {%- assign contact_url = contact[1] -%}
+
+          {%- if contact_platform == 'email' -%}
+          {%- assign contact_platform = 'envelope' -%}
+          {%- endif -%}
+          <a href="{{ contact_url }}">
+            <i class="fa fa-{{ contact_platform }}" aria-hidden="true"></i>
+          </a>
+          {%- assign current_index = current_index | plus: 1 -%}
+          <!-- Delimiters -->
+          {%- if length > current_index -%} | {%- endif -%}
+          {%- endfor -%}
+        </p>
+      </div>
+      {%- endif -%}
     </div>
+  </div>
 
-    <!-- Menu -->
-    <nav class="sidebar-nav">
-        {%- for nav in site.nav -%}
-            {%- assign parent_menu_name = nav[0] -%}
-            {%- assign parent_menu_url = nav[1][0] -%}
-            {%- assign is_relative = parent_menu_url | slice: 0 -%}
-            {%- assign child_menu_length = nav[1] | size | minus: 1 -%}
+  <!-- Menu -->
+  <nav class="sidebar-nav">
+    {%- for nav in site.nav -%}
+    {%- assign parent_menu_name = nav[0] -%}
+    {%- assign parent_menu_url = nav[1][0] -%}
+    {%- assign is_relative = parent_menu_url | slice: 0 -%}
+    {%- assign child_menu_length = nav[1] | size | minus: 1 -%}
 
-            {%- comment -%}
-                <!-- If URL is relative path, convert to absolute path. -->
-            {%- endcomment -%}
-            {%- if is_relative == '/' -%}
-            {%- assign parent_menu_url = nav[1][0] | prepend: site.baseurl -%}
-            {%- endif -%}
-            
-            {%- comment -%}
-                <!-- If parent menu is foldable, it doesn't have 'href' attribute. -->
-            {%- endcomment -%}
-            {%- if child_menu_length > 1 -%}
-                <span class="foldable">
-                    <!-- Parent menu -->
-                    <a class="sidebar-nav-item">{{ parent_menu_name }}</a>
-            {%- else -%}
-                <span>
-                    <!-- Parent menu -->
-                    <a class="sidebar-nav-item{% if page.url == parent_menu_url %} active{% endif %}" href="{{ parent_menu_url }}">{{ parent_menu_name }}</a>
-            {%- endif -%}
+    {%- comment -%}
+    <!-- If URL is relative path, convert to absolute path. -->
+    {%- endcomment -%}
+    {%- if is_relative == '/' -%}
+    {%- assign parent_menu_url = nav[1][0] | prepend: site.baseurl -%}
+    {%- endif -%}
 
-            {%- comment -%}
-                <!-- Start to iterate at the second element of array, because the first is not child menu. -->
-            {%- endcomment -%}
-            {%- for i in (1..child_menu_length) -%}
-                {%- for sub_nav in nav[1][i] -%}
-                    {%- assign child_menu_name = sub_nav[0] -%}
-                    {%- assign child_menu_url = sub_nav[1] -%}
-                    {%- assign sub_is_relative = child_menu_url | slice: 0 -%}
+    {%- comment -%}
+    <!-- If parent menu is foldable, it doesn't have 'href' attribute. -->
+    {%- endcomment -%}
+    {%- if child_menu_length > 1 -%}
+    <span class="foldable">
+      <!-- Parent menu -->
+      <a class="sidebar-nav-item">{{ parent_menu_name }}</a>
+      {%- else -%}
+      <span>
+        <!-- Parent menu -->
+        <a class="sidebar-nav-item{% if page.url == parent_menu_url %} active{% endif %}"
+          href="{{ parent_menu_url }}">{{ parent_menu_name }}</a>
+        {%- endif -%}
 
-                    {%- comment -%}
-                        <!-- If URL is relative path, convert to absolute path. -->
-                    {%- endcomment -%}
-                    {%- if sub_is_relative == '/' -%}
-                        {%- assign child_menu_url = sub_nav[1] | prepend: site.baseurl -%}
-                    {%- endif -%}
+        {%- comment -%}
+        <!-- Start to iterate at the second element of array, because the first is not child menu. -->
+        {%- endcomment -%}
+        {%- for i in (1..child_menu_length) -%}
+        {%- for sub_nav in nav[1][i] -%}
+        {%- assign child_menu_name = sub_nav[0] -%}
+        {%- assign child_menu_url = sub_nav[1] -%}
+        {%- assign sub_is_relative = child_menu_url | slice: 0 -%}
 
-                    <!-- Child menu -->
-                    <a class="sidebar-nav-item sidebar-nav-item-sub{% if page.url == child_menu_url %} active{% endif %}" href="{{ child_menu_url }}">{{ child_menu_name }}</a>
-                {%- endfor -%}
-            {%- endfor -%}
-            </span>
+        {%- comment -%}
+        <!-- If URL is relative path, convert to absolute path. -->
+        {%- endcomment -%}
+        {%- if sub_is_relative == '/' -%}
+        {%- assign child_menu_url = sub_nav[1] | prepend: site.baseurl -%}
+        {%- endif -%}
+
+        <!-- Child menu -->
+        <a class="sidebar-nav-item sidebar-nav-item-sub{% if page.url == child_menu_url %} active{% endif %}"
+          href="{{ child_menu_url }}">{{ child_menu_name }}</a>
         {%- endfor -%}
-    </nav>
+        {%- endfor -%}
+      </span>
+      {%- endfor -%}
+  </nav>
 
-    <!-- Version -->
-    <div class="sidebar-item">Currently v{{ site.version }}</div>
+  <!-- Version -->
+  <div class="sidebar-item">Currently v{{ site.version }}</div>
 
-    <!-- Copyright & license -->
-    <div class="sidebar-item">
-        <p>
-            &copy; {{ site.time | date: '%Y' }} {{ site.author.name }}. This work is licensed under <a href="http://creativecommons.org/licenses/by-nc/4.0/">CC BY-NC 4.0</a>.
-        </p>
-    </div>
+  <!-- Copyright & license -->
+  <div class="sidebar-item">
+    <p>
+      &copy; {{ site.time | date: '%Y' }} {{ site.author.name }}. This work is licensed under <a
+        href="http://creativecommons.org/licenses/by-nc/4.0/">CC BY-NC 4.0</a>.
+    </p>
+  </div>
 
-    <div class="sidebar-item">
-        <p>
-            Powered by <a href="http://jekyllrb.com">jekyll</a> and <a href="http://codinfox.github.io">codinfox-lanyon</a>
-        </p>
-    </div>
+  <div class="sidebar-item">
+    <p>
+      Powered by <a href="http://jekyllrb.com">jekyll</a> and <a href="http://codinfox.github.io">codinfox-lanyon</a>
+    </p>
+  </div>
 </div>
 
 <script>
-    var acc = document.getElementsByClassName("foldable");
+  var acc = document.getElementsByClassName("foldable");
 
-    for (let i = 0; i < acc.length; i++) {
-        console.dir(acc[i]);
-        acc[i].addEventListener("click", function() {
-            /* Toggle between adding and removing the "active" class,
-            to highlight the button that controls the panel */
-            this.children[0].classList.toggle("active");
-            // this.classList.toggle("active");
+  for (let i = 0; i < acc.length; i++) {
+    console.dir(acc[i]);
+    acc[i].addEventListener("click", function () {
+      /* Toggle between adding and removing the "active" class,
+      to highlight the button that controls the panel */
+      this.children[0].classList.toggle("active");
+      // this.classList.toggle("active");
 
-            /* Toggle between hiding and showing the active panel */
-            let panel = this.children[1];
-            //let panel = this.nextElementSibling;
-            if (panel.style.display === "block") {
-                panel.style.display = "none";
-            } else {
-                panel.style.display = "block";
-            }
-        });
-    }
-
-    /* Need JQuery */
-    $(document).ready(function() {
-        $('.content').hide();
-
-        //content 클래스를 가진 div를 표시/숨김(토글)
-        $('.foldable').click(function(){
-            $(this).next('.content').slideToggle(500);
-        });
+      /* Toggle between hiding and showing the active panel */
+      let panel = this.children[1];
+      //let panel = this.nextElementSibling;
+      if (panel.style.display === "block") {
+        panel.style.display = "none";
+      } else {
+        panel.style.display = "block";
+      }
     });
+  }
+
 </script>

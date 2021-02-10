@@ -11,70 +11,66 @@ title: Home
 </div>
 -->
 
-<br/><br/>
+<br /><br />
 
 <!-- Article list -->
 <div class="posts article-list">
-    {%- comment -%}
-    <!--
+  {%- comment -%}
+  <!--
         
     -->
-    {%- endcomment -%}
-    {%- assign the_number_of_articles = paginator.total_posts -%}
-    {%- assign articles = paginator.posts -%}
+  {%- endcomment -%}
+  {%- assign the_number_of_articles = paginator.total_posts -%}
+  {%- assign articles = paginator.posts -%}
 
-    {%- if the_number_of_articles > 0 -%}
-        {%- for article in articles -%}
-            {%- assign url = article.url -%}
-            {%- assign title = article.title -%}
-            {%- assign thumbnail = article.thumbnail -%}
-            {%- assign tags = article.tags -%}
-            {%- assign date = article.date -%}
-            {%- assign comments = article.comments -%}
-            {%- assign content = article.content -%}
-            
-            <!-- Article item -->
-            <article class="article-item">
-                {%- if thumbnail != nil -%}
-                    <header class="article-header">
-                        <!-- Thumbnail -->
-                        <a
-                            class="article-thumbnail"
-                            href="{{ url }}"
-                            style="background-image: url('{{ thumbnail }}')"
-                            alt="{{ title }}"
-                        >
-                        </a>
-                    </header>
-                {%- endif -%}
-                <section class="article-body">
-                    <!-- Description -->
-                    <div class="article-description">
-                        <a class="article-link" href="{{ url }}">
-                            <h2 class="article-title">{{ title }}</h2>
-                            <h3 class="article-subtitle">Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto, voluptate totam! tium velit voluptatibus magni.</h3>
-                        </a>
-                    </div>
-                    <!-- Metadata -->
-                    <div class="article-meta">
-                        {%- if tags != empty -%}
-                            <div class="article-tags">
-                                {%- for tag in tags -%}
-                                    <!-- codinfox-tag-mark -->
-                                    <a class="article-tag" href="/pages/tags#{{ tag | slugify }}">{{ tag }}</a>
-                                {%- endfor -%}
-                            </div>
-                        {%- endif -%}
-                        <div class="article-meta-footer">
-                            <time class="article-date">{{ date | date_to_string }}</time>
-                            {%- if comments == true -%}
-                                <a class="article-comment" href="{{ url }}#disqus_thread">Comments</a>
-                            {%- endif -%}
-                        </div>
-                    </div>
-                </section>
-                
-                <!--
+  {%- if the_number_of_articles > 0 -%}
+  {%- for article in articles -%}
+  {%- assign url = article.url -%}
+  {%- assign title = article.title -%}
+  {%- assign thumbnail = article.thumbnail -%}
+  {%- assign tags = article.tags -%}
+  {%- assign date = article.date -%}
+  {%- assign comments = article.comments -%}
+  {%- assign content = article.content -%}
+
+  <!-- Article item -->
+  <article class="article-item">
+    {%- if thumbnail != nil -%}
+    <header class="article-header">
+      <!-- Thumbnail -->
+      <a class="article-thumbnail" href="{{ url }}" style="background-image: url('{{ thumbnail }}')" alt="{{ title }}">
+      </a>
+    </header>
+    {%- endif -%}
+    <section class="article-body">
+      <!-- Description -->
+      <div class="article-description">
+        <a class="article-link" href="{{ url }}">
+          <h2 class="article-title">{{ title }}</h2>
+          <h3 class="article-subtitle">Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto, voluptate totam!
+            tium velit voluptatibus magni.</h3>
+        </a>
+      </div>
+      <!-- Metadata -->
+      <div class="article-meta">
+        {%- if tags != empty -%}
+        <div class="article-tags">
+          {%- for tag in tags -%}
+          <!-- codinfox-tag-mark -->
+          <a class="article-tag" href="/pages/tags#{{ tag | slugify }}">{{ tag }}</a>
+          {%- endfor -%}
+        </div>
+        {%- endif -%}
+        <div class="article-meta-footer">
+          <time class="article-date">{{ date | date_to_string }}</time>
+          {%- if comments == true -%}
+          <a class="article-comment" href="{{ url }}#disqus_thread">Comments</a>
+          {%- endif -%}
+        </div>
+      </div>
+    </section>
+
+    <!--
                 <h1 class="post-title" style="font-weight: bold">
                     <a href="{{ article.url }}">{{ article.title }}</a>
                 </h1>
@@ -89,40 +85,41 @@ title: Home
                     {%- endif -%}
                 </span>
                 -->
-                {%- comment -%}
-                    /*
-                     * This code shows content of post to you.
-                     *
-                     * {{ post.content | split:"<!-- more -->" | first % }}
-                     */
-                {%- endcomment -%}
-                <!--
+    {%- comment -%}
+    /*
+    * This code shows content of post to you.
+    *
+    * {{ post.content | split:"
+    <!-- more -->" | first % }}
+    */
+    {%- endcomment -%}
+    <!--
                 <div class="codinfox-post-more">
                     {%- if tags != empty -%}
                         <a href="{{ article.url }}#disqus_thread">Comment</a>&nbsp;
                     {%- endif -%}
                 </div>
                 -->
-            </article>
-        {%- endfor -%}
-    {%- else -%}
-        No posts.
-    {%- endif -%}
+  </article>
+  {%- endfor -%}
+  {%- else -%}
+  No posts.
+  {%- endif -%}
 </div>
 
 <div class="pagination">
-    {%- if paginator.next_page -%}
-    <a class="pagination-item older" href="/pages/{{ paginator.next_page }}">Older</a>
-    {%- else -%}
-    <span class="pagination-item older">Older</span>
-    {%- endif -%}
-    {%- if paginator.previous_page -%}
-        {%- if paginator.page == 2 -%}
-    <a class="pagination-item newer" href="/">Newer</a>
-        {%- else -%}
-    <a class="pagination-item newer" href="/pages/{{ paginator.previous_page }}">Newer</a>
-        {%- endif -%}
-    {%- else -%}
-    <span class="pagination-item newer">Newer</span>
-    {%- endif -%}
+  {%- if paginator.next_page -%}
+  <a class="pagination-item older" href="/pages/{{ paginator.next_page }}">Older</a>
+  {%- else -%}
+  <span class="pagination-item older">Older</span>
+  {%- endif -%}
+  {%- if paginator.previous_page -%}
+  {%- if paginator.page == 2 -%}
+  <a class="pagination-item newer" href="/">Newer</a>
+  {%- else -%}
+  <a class="pagination-item newer" href="/pages/{{ paginator.previous_page }}">Newer</a>
+  {%- endif -%}
+  {%- else -%}
+  <span class="pagination-item newer">Newer</span>
+  {%- endif -%}
 </div>

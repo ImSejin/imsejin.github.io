@@ -28,7 +28,7 @@ nav:
   Home:
     - '/'
   Articles:
-    -                                                       # The path of parent menu must be the first element of array.
+    - # The path of parent menu must be the first element of array.
     - { Categories: '/pages/categories' }
     - { Tags: '/pages/tags' }
   About:
@@ -65,7 +65,7 @@ author:
   gravatar:     https://en.gravatar.com/yourname
   contact:
     github:       http://imsejin.github.io
-    # facebook:     
+    # facebook:
     email:        hackeres123@gmail.com
 
 repo:           https://github.com/codinfox/lanyon-codinfox.github.io

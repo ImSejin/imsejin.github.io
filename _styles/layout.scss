@@ -9,15 +9,15 @@
 $theme-color: $steelBlue;
 
 .theme {
-    & .sidebar,
-    & .sidebar-toggle:active,
-    & #sidebar-checkbox:checked ~ .sidebar-toggle {
-        background-color: $theme-color;
-    }
+  & .sidebar,
+  & .sidebar-toggle:active,
+  & #sidebar-checkbox:checked ~ .sidebar-toggle {
+    background-color: $theme-color;
+  }
 
-    & .container a,
-    & .sidebar-toggle,
-    & .related-posts li a:hover {
-        color: $theme-color;
-    }
+  & .container a,
+  & .sidebar-toggle,
+  & .related-posts li a:hover {
+    color: $theme-color;
+  }
 }

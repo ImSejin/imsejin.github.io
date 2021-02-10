@@ -1,57 +1,59 @@
 <!DOCTYPE html>
 <html lang="ko">
 
-  {% include head.html %}
+{% include head.html %}
 
-  <body class="theme layout-reverse">
+<body class="theme layout-reverse">
 
-    {% include sidebar.html %}
+  {% include sidebar.html %}
 
-    <!--
+  <!--
       Wrapper is the content to shift when toggling the sidebar.
       We wrap the content to avoid any CSS collisions with our real content.
     -->
-    <div class="wrapper">
-      <div class="masthead">
-        <div class="container">
-          <h3 class="masthead-title">
-            <a href="/" title="Home">
-              <img src="/public/logo.png" class="codinfox-logo" />
-            </a>
-            <small>{{ site.tagline }}</small>
-          </h3>
-        </div>
-        <!-- <div class="codinfox-masthead-bg"></div> -->
+  <div class="wrapper">
+    <div class="masthead">
+      <div class="container">
+        <h3 class="masthead-title">
+          <a href="/" title="Home">
+            <img src="/public/logo.png" class="codinfox-logo" />
+          </a>
+          <small>{{ site.tagline }}</small>
+        </h3>
       </div>
-
-      <!-- This shows you articles -->
-      <div class="container content">
-        {{ content }}
-      </div>
+      <!-- <div class="codinfox-masthead-bg"></div> -->
     </div>
 
-    <label for="sidebar-checkbox" class="sidebar-toggle"></label>
+    <!-- This shows you articles -->
+    <div class="container content">
+      {{ content }}
+    </div>
+  </div>
 
-    <!-- Disqus -->
-    <script id="dsq-count-scr" src="//{{ site.disqus_short_name }}.disqus.com/count.js" async></script>
+  <label for="sidebar-checkbox" class="sidebar-toggle"></label>
 
-    <!-- Sidebar toggler -->
-    <script>
-      (function(document) {
-        var toggle = document.querySelector('.sidebar-toggle');
-        var sidebar = document.querySelector('#sidebar');
-        var checkbox = document.querySelector('#sidebar-checkbox');
+  <!-- Disqus -->
+  <script id="dsq-count-scr" src="//{{ site.disqus_short_name }}.disqus.com/count.js" async></script>
 
-        document.addEventListener('click', function(e) {
-          var target = e.target;
+  <!-- Sidebar toggler -->
+  <script>
+    (function (document) {
+      var toggle = document.querySelector('.sidebar-toggle');
+      var sidebar = document.querySelector('#sidebar');
+      var checkbox = document.querySelector('#sidebar-checkbox');
 
-          if(!checkbox.checked ||
-             sidebar.contains(target) ||
-             (target === checkbox || target === toggle)) return;
+      document.addEventListener('click', function (e) {
+        var target = e.target;
 
-          checkbox.checked = false;
-        }, false);
-      })(document);
-    </script>
-  </body>
+        if (!checkbox.checked ||
+          sidebar.contains(target) ||
+          (target === checkbox || target === toggle)) return;
+
+        checkbox.checked = false;
+      }, false);
+    })(document);
+
+  </script>
+</body>
+
 </html>

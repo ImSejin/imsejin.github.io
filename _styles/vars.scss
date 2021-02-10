@@ -1,7 +1,5 @@
 /*
  * Style variables
- *
- * 
  */
 $white:          #fff;
 $deepRed:        #900c3f;
@@ -23,7 +21,7 @@ $deepSkyBlue:    #00bfff;
 $dodgerBlue:     #1e90ff;
 $cornflowerBlue: #6495ed;
 $blue:           #6a9fb5;
-$steelBlue:      #3082c5; // #4682b4;
+$steelBlue:      #3082c5; // #4682b4
 $royalBlue:      #4169e1;
 
 $mygenta:        #aa759f;
@@ -40,5 +38,5 @@ $translucency:     0.15;
  * Function
  */
 @function makeColorTranslucent($color, $amount: 15%) {
-    $color: rgba(104, 158, 180, 0.15);
+  $color: rgba(104, 158, 180, 0.15);
 }

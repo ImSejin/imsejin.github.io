@@ -4,37 +4,37 @@
  * Basic settings
  */
 a:hover {
-    transition: all 0.15s;
-    text-decoration: none;
-    color: lighten($theme-color, 30%) !important;
+  transition: all 0.15s;
+  text-decoration: none;
+  color: lighten($theme-color, 30%) !important;
 }
 
 /*
  * Font settings
  */
 html {
-    // font-family: 'Nanum Myeongjo', 'Merriweather', serif !important;
-    // font-family: 'Noto Sans KR', 'Nanum Gothic', sans-serif !important;
-    font-size: 20px;
-    font-weight: normal;
-    line-height: 1.5; /* 37.5px */
+  // font-family: 'Nanum Myeongjo', 'Merriweather', serif !important;
+  // font-family: 'Noto Sans KR', 'Nanum Gothic', sans-serif !important;
+  font-size: 20px;
+  font-weight: normal;
+  line-height: 1.5; /* 37.5px */
 
-    .sidebar {
-        font-family: 'Open Sans', sans-serif;
-        text-rendering: geometricPrecision;
-    }
+  .sidebar {
+    font-family: 'Open Sans', sans-serif;
+    text-rendering: geometricPrecision;
+  }
 
-    h2.title {
-        font-family: 'Open Sans', sans-serif;
-        text-rendering: geometricPrecision;
-        font-size: 2.65rem;
-        font-weight: 600;
-    }
+  h2.title {
+    font-family: 'Open Sans', sans-serif;
+    text-rendering: geometricPrecision;
+    font-size: 2.65rem;
+    font-weight: 600;
+  }
 
-    h3.title {
-        font-family: 'Open Sans', sans-serif;
-        text-rendering: geometricPrecision;
-        font-size: 5.4rem;
-        font-weight: 600;
-    }
+  h3.title {
+    font-family: 'Open Sans', sans-serif;
+    text-rendering: geometricPrecision;
+    font-size: 5.4rem;
+    font-weight: 600;
+  }
 }
